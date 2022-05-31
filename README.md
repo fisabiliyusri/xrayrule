@@ -1,0 +1,2 @@
+# xrayrule
+rule for xray
