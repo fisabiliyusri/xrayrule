@@ -1,0 +1,36 @@
+
+rule-providers:
+  REJECT-ALL-ADS:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: "https://rules.kr328.app/category-ads-all.yaml"
+    path: ./confs/ruleset/category-ads-all.yaml
+  WhatsApp:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://pastebin.com/raw/huZ6fA1A"
+    path: ./confs/ruleset/rule-whatsapp.yaml
+  PUBGM:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://pastebin.com/raw/b0WD8Q1V"
+    path: ./confs/ruleset/rule-pubgm.yaml
+  MLBB:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://pastebin.com/raw/yrLs8ghj"
+    path: ./confs/ruleset/rule-mlbb.yaml
+rules:
+  # AdBlock
+  - RULE-SET,REJECT-ALL-ADS,REJECT
+  # Whatsapp
+  - RULE-SET,WhatsApp,VoIP
+  # PUBGM
+  - RULE-SET,PUBGM,GAMING
+  # Mobile Legends
+  - RULE-SET,MLBB,GAMING
+  - MATCH,DEFAULT_PROXY
